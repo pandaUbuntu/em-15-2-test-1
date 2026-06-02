@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Checkout</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="checkout-card">
+      <form id="checkoutForm" novalidate>
+        <div class="form-group" id="emailGroup">
+          <label for="emailInput" class="field-label">Email address</label>
+          <div class="input-container" id="emailContainer">
+            <input type="email" id="emailInput" class="form-input" required />
+          </div>
+          <span class="validation-message" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">Full name</label>
+          <div class="field-row">
+            <input
+              type="text"
+              id="firstName"
+              class="form-input"
+              placeholder="First name"
+              required
+            />
+            <input
+              type="text"
+              id="lastName"
+              class="form-input"
+              placeholder="Last name"
+              required
+            />
+          </div>
+          <span class="validation-message" id="nameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">Address</label>
+          <input
+            type="text"
+            id="streetAddress"
+            class="form-input spacer-bottom"
+            placeholder="Street Address"
+            required
+          />
+          <input
+            type="text"
+            id="aptAddress"
+            class="form-input"
+            placeholder="Office, Suite, Apt."
+          />
+          <span class="validation-message" id="addressError"></span>
+        </div>
+
+        <div class="form-group">
+          <div class="geo-grid">
+            <div class="geo-cell">
+              <label for="cityInput" class="field-label">City</label>
+              <input type="text" id="cityInput" class="form-input" required />
+            </div>
+            <div class="geo-cell">
+              <label for="stateSelect" class="field-label">State</label>
+              <select id="stateSelect" class="form-select" required>
+                <option value="" disabled selected>Choose...</option>
+                <option value="IL">Miami</option>
+                <option value="NY">New York</option>
+                <option value="CA">California</option>
+              </select>
+            </div>
+            <div class="geo-cell zip-size">
+              <label for="zipInput" class="field-label">Zip</label>
+              <input type="text" id="zipInput" class="form-input" required />
+            </div>
+          </div>
+          <span class="validation-message" id="geoError"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">Payment details</label>
+          <div class="secure-payment-field" id="paymentContainer">
+            <i class="fa-solid fa-lock lock-icon"></i>
+            <input
+              type="text"
+              id="cardNumber"
+              class="card-element card-num"
+              placeholder="0000 0000 0000 0000"
+              maxlength="19"
+              required
+            />
+            <input
+              type="text"
+              id="cardExpiry"
+              class="card-element card-exp"
+              placeholder="MM/YY"
+              maxlength="5"
+              required
+            />
+            <input
+              type="text"
+              id="cardCvv"
+              class="card-element card-cvv"
+              placeholder="CVV"
+              maxlength="3"
+              required
+            />
+            <input
+              type="text"
+              id="cardZip"
+              class="card-element card-zip"
+              placeholder="ZIP"
+              maxlength="5"
+              required
+            />
+          </div>
+          <div class="secure-caption">ENCRYPTED AND SECURED</div>
+          <span class="validation-message" id="paymentError"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label"
+            >What radio technologies are you using?</label
+          >
+          <div class="selectable-flex">
+            <label class="option-label"
+              ><input type="checkbox" name="tech" value="2G" /><span
+                >2G</span
+              ></label
+            >
+            <label class="option-label"
+              ><input type="checkbox" name="tech" value="3G" /><span
+                >3G</span
+              ></label
+            >
+            <label class="option-label"
+              ><input type="checkbox" name="tech" value="4G LTE" /><span
+                >4G LTE</span
+              ></label
+            >
+            <label class="option-label"
+              ><input type="checkbox" name="tech" value="CAT-M" /><span
+                >CAT-M</span
+              ></label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label"
+            >How much data do you expect to use each month?</label
+          >
+          <div class="selectable-flex">
+            <label class="option-label"
+              ><input
+                type="radio"
+                name="dataLimit"
+                value="0-50 MB"
+                checked
+              /><span>0-50 MB</span></label
+            >
+            <label class="option-label"
+              ><input type="radio" name="dataLimit" value="50-250 MB" /><span
+                >50-250 MB</span
+              ></label
+            >
+            <label class="option-label"
+              ><input type="radio" name="dataLimit" value="250 MB-1 GB" /><span
+                >250 MB-1 GB</span
+              ></label
+            >
+            <label class="option-label"
+              ><input type="radio" name="dataLimit" value="1GB+" /><span
+                >1GB+</span
+              ></label
+            >
+          </div>
+        </div>
+
+        <div class="form-group" id="promoGroup">
+          <label for="promoInput" class="field-label">Promo code</label>
+          <div class="input-container" id="promoContainer">
+            <input type="text" id="promoInput" class="form-input" />
+          </div>
+          <h2 class="field-label">Promo code: dima.</h2>
+        </div>
+
+        <div class="form-submit-row">
+          <label class="marketing-opt-in">
+            <input type="checkbox" id="annoyingOffers" checked />
+            <span class="opt-in-text">Sign me up for annoying offers</span>
+          </label>
+          <button type="submit" class="submit-button">Place order</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
