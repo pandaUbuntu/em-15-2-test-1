@@ -6,6 +6,7 @@ function removeDynamicIcons(container) {
   }
 }
 
+
 function checkPromoCode() {
   const promoInput = document.getElementById("promoInput");
   const promoGroup = document.getElementById("promoGroup");
